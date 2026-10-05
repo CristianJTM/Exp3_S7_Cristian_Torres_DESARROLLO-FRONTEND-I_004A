@@ -117,6 +117,7 @@ function App() {
                 busqueda={busqueda}
                 onCambiarBusqueda={setBusqueda}
                 onAgregarAlCarrito={agregarAlCarrito}
+                onQuitarDelCarrito={eliminarDelCarrito}
                 carritoIds={carritoIds}
             />
 

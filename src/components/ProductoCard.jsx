@@ -8,7 +8,7 @@ import { formatearPrecio } from '../utils/formatearPrecio.js';
  * Recibe `enCarrito` (booleano) desde App para saber si este producto
  * ya está agregado, y así cambiar el texto/estilo del botón principal.
  */
-function ProductoCard({ producto, enCarrito, onAgregarAlCarrito }) {
+function ProductoCard({ producto, enCarrito, onAgregarAlCarrito, onQuitarDelCarrito }) {
     // Estado propio del componente: no se comparte con nadie más.
     // Controla un botón "Ver más / Ver menos" independiente del carrito.
     const [mostrarDetalles, setMostrarDetalles] = useState(false);
@@ -60,14 +60,14 @@ function ProductoCard({ producto, enCarrito, onAgregarAlCarrito }) {
                         </p>
                     )}
 
-                    {/* Botón principal: cambia de texto y de estilo si el producto
-                        ya está en el carrito (estado que viene de App, vía props) */}
+                    {/* Botón principal: alterna entre agregar y quitar según si el
+                        producto ya está en el carrito (enCarrito viene de App vía props) */}
                     <button
                         type="button"
                         className={'btn mt-auto ' + (enCarrito ? 'btn-success' : 'btn-primary')}
-                        onClick={() => onAgregarAlCarrito(producto)}
+                        onClick={() => enCarrito ? onQuitarDelCarrito(producto.id) : onAgregarAlCarrito(producto)}
                     >
-                        {enCarrito ? '✓ En el carrito' : 'Agregar al carrito'}
+                        {enCarrito ? '✓ En el carrito (quitar)' : 'Agregar al carrito'}
                     </button>
                 </div>
             </article>
