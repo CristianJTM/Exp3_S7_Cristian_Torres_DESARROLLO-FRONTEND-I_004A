@@ -17,8 +17,8 @@
             rel="stylesheet"
     >
 
-    <!-- Hoja de estilos propia -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- La hoja de estilos propia ya no se enlaza aquí: se importa
+         desde src/main.jsx (src/style.css) y Vite la agrega al build -->
 </head>
 
 <body>
@@ -244,7 +244,7 @@
 
     <!--
         RAÍZ DE REACT: la tienda completa (productos + carrito + categorías)
-        se renderiza dentro de este div. Ver assets/js/app.jsx
+        se renderiza dentro de este div. Ver src/App.jsx
     -->
     <div id="raiz-tienda"></div>
 
@@ -314,18 +314,13 @@
 </footer>
 
 
-<!-- JavaScript de Bootstrap 5 (solo para el carrusel, que es estático) -->
+<!-- JavaScript de Bootstrap 5 (solo para el navbar y el carrusel, que son estáticos) -->
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
 ></script>
 
-<!-- React, ReactDOM y Babel (sin herramientas de compilación) -->
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-<!-- Nuestros componentes de React -->
-<script type="text/babel" src="assets/js/app.jsx"></script>
+<!-- Punto de entrada de React: Vite se encarga de la transformación de JSX -->
+<script type="module" src="/src/main.jsx"></script>
 
 </body>
 </html>
