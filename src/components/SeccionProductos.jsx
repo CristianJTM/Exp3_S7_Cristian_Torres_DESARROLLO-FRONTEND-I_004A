@@ -5,7 +5,7 @@ import ProductoCard from './ProductoCard.jsx';
  * Agrupa el buscador y la grilla de productos. Maneja los tres
  * estados posibles de la carga: cargando, error, o datos listos.
  */
-function SeccionProductos({ cargando, error, productos, busqueda, onCambiarBusqueda, onAgregarAlCarrito }) {
+function SeccionProductos({ cargando, error, productos, busqueda, onCambiarBusqueda, onAgregarAlCarrito, carritoIds }) {
     return (
         <section id="productos" className="seccion mb-4 p-4 rounded-3">
             <div className="container">
@@ -33,6 +33,7 @@ function SeccionProductos({ cargando, error, productos, busqueda, onCambiarBusqu
                             <ProductoCard
                                 key={producto.id}
                                 producto={producto}
+                                enCarrito={carritoIds.includes(producto.id)}
                                 onAgregarAlCarrito={onAgregarAlCarrito}
                             />
                         ))}
