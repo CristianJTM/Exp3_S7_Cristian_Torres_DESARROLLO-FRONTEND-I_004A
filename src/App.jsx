@@ -81,6 +81,10 @@ function App() {
         setCarrito([]);
     }
 
+    // IDs de los productos que ya están en el carrito (para el botón
+    // "Agregar al carrito" / "En el carrito" de cada ProductoCard)
+    const carritoIds = carrito.map((item) => item.id);
+
     // Lista de categorías únicas, calculada a partir del catálogo cargado
     const categorias = [...new Set(productos.map((producto) => producto.categoria))];
 
@@ -113,6 +117,7 @@ function App() {
                 busqueda={busqueda}
                 onCambiarBusqueda={setBusqueda}
                 onAgregarAlCarrito={agregarAlCarrito}
+                carritoIds={carritoIds}
             />
 
             <Carrito
