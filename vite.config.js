@@ -4,5 +4,5 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Exp3_S7_Cristian_Torres_DESARROLLO-FRONTEND-I_004A/',
+  base: '/Exp3_S8_Cristian_Torres_DESARROLLO-FRONTEND-I_004A/',
 })
